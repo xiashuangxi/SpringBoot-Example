@@ -32,9 +32,8 @@ env:
     - CODECOV_TOKEN=7f31adf9-c934-440e-9260-f1df316eb687
 
 after_success:
+  - codecov 
   - bash <(curl -s https://codecov.io/bash)
-  - python request.py
-  - ./upstream.sh
 
 notifications:
   email: false
