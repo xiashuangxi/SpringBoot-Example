@@ -20,6 +20,8 @@ before_script:
   - sleep 3 # give xvfb some time to start
   - pyenv install 3.6.0
   - pip install requests
+  - pip install codecov 
+  - pip install coverage
 
 script: 
   - chmod 777 ./scripts/run.sh

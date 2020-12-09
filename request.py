@@ -4,7 +4,7 @@ import requests
 import time
 import os
 
-payload = {'token': os.environ['7f31adf9-c934-440e-9260-f1df316eb687']}
+payload = {'token': os.environ['API_KEY']}
 
 link = 'https://codecov.io/api/gh/codecov/java-standard'
 
