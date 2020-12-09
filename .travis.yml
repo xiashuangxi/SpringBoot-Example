@@ -11,4 +11,4 @@ cache:
     - '$HOME/.m2/repository'
     - '$HOME/.gradle'
 
-script: "./gradlew clean build"
+script: "cd springboot-main-slave | ./gradle clean build"
