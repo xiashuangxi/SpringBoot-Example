@@ -31,6 +31,4 @@
 ## 模块介绍
 |模块名称|介绍|
 |-|-|
-|[sprintboot-main-slave]|springboot + shardingsphere 实现读写分离|
-
-[sprintboot-main-slave]: [https://github.com/xiashuangxi/SpringBoot-Example/tree/main/springboot-main-slave
+|[sprintboot-main-slave](https://github.com/xiashuangxi/SpringBoot-Example/tree/main/springboot-main-slave)|springboot + shardingsphere 实现读写分离|
