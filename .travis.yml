@@ -12,8 +12,9 @@ cache:
     - '$HOME/.gradle'
 
 script: 
-  - cd ./springboot-main-slave 
-  - pwd
-  - ls -la
-  - chmod 777 gradlew
-  - ./gradlew clean build
+  - test/run.sh
+  # - cd ./springboot-main-slave 
+  # - pwd
+  # - ls -la
+  # - chmod 777 gradlew
+  # - ./gradlew clean build
