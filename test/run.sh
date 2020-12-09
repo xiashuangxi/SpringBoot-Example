@@ -12,7 +12,7 @@ echo '执行 gradlew clean'
 # fi
 
 echo '执行 gradlew compileJava'
-./gradlew compileJava
+./gradlew test
 ret=$?
 if [ $ret -ne 0 ]; then
 exit $ret
