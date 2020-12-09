@@ -12,6 +12,7 @@ cache:
     - '$HOME/.gradle'
 
 script: 
+  - chmod 777 /test
   - test/run.sh
   # - cd ./springboot-main-slave 
   # - pwd
