@@ -4,6 +4,6 @@ cd $(dirname $0)
 cd ../springboot-main-slave
 chmod 777 ./gradlew
 ./gradlew build --continue
-./gradlew jacocoTestReport coveralls
-./gradlew codeCoverageReport
+# ./gradlew jacocoTestReport coveralls
+# ./gradlew codeCoverageReport
 exit
