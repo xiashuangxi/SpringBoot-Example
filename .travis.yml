@@ -1,29 +1,56 @@
+# language: java
+# install: skip
+
+# os: linux
+# dist: trusty
+# jdk: oraclejdk8
+
+# branches:
+#   only:
+#     - main
+
+# cache:
+#   directories:
+#   - $HOME/.gradle/caches/
+#   - $HOME/.gradle/wrapper/
+
+# install: echo "skip 'gradle assemble' step"
+
+# script: 
+#   # - chmod 777 ./test/run.sh
+#   # - test/run.sh
+#   - cd ./springboot-main-slave 
+#   - pwd
+#   - ls -la
+#   - chmod 777 gradlew
+#   - ./gradlew build coveralls --continue
+
+# after_success:
+# - bash <(curl -s https://codecov.io/bash)>
+
+
 language: java
-install: skip
+jdk:
+  - oraclejdk8
 
-os: linux
-dist: trusty
-jdk: oraclejdk8
+addons:
+  firefox: "44.0"
 
-branches:
-  only:
-    - main
-
+before_cache:
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 cache:
   directories:
-  - $HOME/.gradle/caches/
-  - $HOME/.gradle/wrapper/
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
 
-install: echo "skip 'gradle assemble' step"
+install: echo "skip './gradlew assemble' step"
+
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
 
 script: 
-  # - chmod 777 ./test/run.sh
-  # - test/run.sh
   - cd ./springboot-main-slave 
-  - pwd
-  - ls -la
   - chmod 777 gradlew
-  - ./gradlew build coveralls --continue
-
-after_success:
-- bash <(curl -s https://codecov.io/bash)>
+  - ./gradlew build --continue
