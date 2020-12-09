@@ -15,4 +15,5 @@ script:
   - cd ./springboot-main-slave 
   - pwd
   - ls -la
+  - chmod 777 gradlew
   - ./gradlew clean build
