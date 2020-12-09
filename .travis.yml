@@ -13,4 +13,4 @@ cache:
 
 script: 
   - cd ./springboot-main-slave 
-  - "./gradle clean build"
+  - "./gradlew clean build"
