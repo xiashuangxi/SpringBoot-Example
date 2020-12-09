@@ -22,7 +22,7 @@ before_script:
   # - pip install requests
   # - pip install codecov 
   # - pip install coverage
-  - pip install coveragepy
+  - pip3 install coveragepy
 
 script: 
   - chmod 777 ./scripts/run.sh
