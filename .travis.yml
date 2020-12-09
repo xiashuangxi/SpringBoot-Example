@@ -6,11 +6,6 @@ branches:
   only:
     - main
 
-cache:
-  directories:
-    - '$HOME/.m2/repository'
-    - '$HOME/.gradle'
-
 script: 
   - cd ./springboot-main-slave 
   - pwd
