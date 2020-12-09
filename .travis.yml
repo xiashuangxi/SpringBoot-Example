@@ -8,10 +8,13 @@ jdk: oraclejdk8
 branches:
   only:
     - main
+
 cache:
   directories:
-  - $HOME/.m2
-  - $HOME/.gradle
+  - $HOME/.gradle/caches/
+  - $HOME/.gradle/wrapper/
+
+install: echo "skip 'gradle assemble' step"
 
 script: 
   # - chmod 777 ./test/run.sh
@@ -21,3 +24,6 @@ script:
   - ls -la
   - chmod 777 gradlew
   - ./gradlew build --scan -s
+
+after_success:
+- bash <(curl -s https://codecov.io/bash)>
