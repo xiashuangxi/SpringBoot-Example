@@ -13,6 +13,9 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 
+env:
+  global:
+    - COVERALLS_REPO_TOKEN=4keiZr8Kc4MJnoI38kTFDm5sBabn3taiA
 
 before_script:
   - "export DISPLAY=:99.0"

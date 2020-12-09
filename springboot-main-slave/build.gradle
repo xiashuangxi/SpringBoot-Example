@@ -21,26 +21,18 @@ buildscript {
 
 plugins {
     id 'java'
+
+    id 'jacoco'
+    id 'com.github.kt3k.coveralls' version '2.8.4'
 }
 
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-// coveralls
-apply plugin: 'com.github.kt3k.coveralls'
-apply plugin: 'jacoco'
-
 group 'com.sbe'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
-
-jacocoTestReport{
-    reports {
-        xml.enabled = true
-        html.enabled = true
-    }
-}
 
 repositories {
     mavenLocal()
@@ -68,6 +60,18 @@ dependencies {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
 }
+
 test {
     useJUnitPlatform()
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true // coveralls plugin depends on xml format report
+        html.enabled = true
+    }
+}
+
+coveralls {
+    jacocoReportPath 'build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml'
 }
