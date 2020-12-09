@@ -12,7 +12,9 @@ cache:
     - '$HOME/.gradle'
 
 before_install:
-  - chmod +x ./gradlew
+  - pwd
+  - ls -la
+  - chmod +x /.gradlew
 
 script: 
   - cd ./springboot-main-slave 
