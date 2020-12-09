@@ -12,7 +12,9 @@
   <br>
   <img alt="Xia Shuangxi" src="https://travis-ci.org/xiashuangxi/SpringBoot-Example.svg?branch=main"/>  
   <a href="https://github.com/xiashuangxi"><img alt="Xia Shuangxi" src="https://img.shields.io/badge/author-Xia%20Shuangxi-blue"/></a>
-  <a href="https://github.com/xiashuangxi/SpringBoot-Example/blob/main/LICENSE"><img alt="MIT" src="https://img.shields.io/badge/license-MIT-blue"/></a>
+  <a href="https://github.com/xiashuangxi/SpringBoot-Example/blob/main/LICENSE">
+ <a href='https://coveralls.io/github/xiashuangxi/SpringBoot-Example?branch=main'><img src='https://coveralls.io/repos/github/xiashuangxi/SpringBoot-Example/badge.svg?branch=main' alt='Coverage Status' /></a>
+  <img alt="MIT" src="https://img.shields.io/badge/license-MIT-blue"/></a>
 
 </p>
 
