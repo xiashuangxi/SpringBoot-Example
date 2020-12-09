@@ -16,4 +16,4 @@ script:
   - pwd
   - ls -la
   - chmod +x gradlew
-  - gradlew clean build
+  - gradle clean build
