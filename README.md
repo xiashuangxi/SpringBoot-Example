@@ -1,4 +1,21 @@
-# SpringBoot-Example
+<!-- <p align="center">
+  <a href="https://getbootstrap.com/">
+    <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo-shadow.png" alt="Bootstrap logo" width="200" height="165">
+  </a>
+</p> -->
+
+<h3 align="center">Spring Boot Example</h3>
+
+<p align="center">
+  Spring Boot 示例
+  <br>
+  <br>
+  <a href="https://github.com/xiashuangxi"><img alt="Xia Shuangxi" src="https://img.shields.io/badge/author-Xia%20Shuangxi-blue"/></a>
+
+</p>
+
+
+## SpringBoot-Example
 `SpringBoot-Example` 是一个集合了各种示例的项目。
 
 ## 环境
@@ -10,4 +27,6 @@
 ## 模块介绍
 |模块名称|介绍|
 |-|-|
-|sprintboot-main-slave|springboot + shardingsphere 实现读写分离|
+|[sprintboot-main-slave]|springboot + shardingsphere 实现读写分离|
+
+[sprintboot-main-slave]: [https://github.com/xiashuangxi/SpringBoot-Example/tree/main/springboot-main-slave
