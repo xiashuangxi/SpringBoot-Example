@@ -15,6 +15,7 @@
   <a href="https://github.com/xiashuangxi/SpringBoot-Example/blob/main/LICENSE">
  <a href='https://coveralls.io/github/xiashuangxi/SpringBoot-Example?branch=main'><img src='https://coveralls.io/repos/github/xiashuangxi/SpringBoot-Example/badge.svg?branch=main' alt='Coverage Status' /></a>
   <img alt="MIT" src="https://img.shields.io/badge/license-MIT-blue"/></a>
+  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fxiashuangxi%2FSpringBoot-Example?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fxiashuangxi%2FSpringBoot-Example.svg?type=shield"/></a>
 
 </p>
 
