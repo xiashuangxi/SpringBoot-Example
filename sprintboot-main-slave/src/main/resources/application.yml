@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: springboot-main-slave
+  shardingsphere:
+    datasource:
+      names: ds0,ds1 # 多数据源
+      ds0:
+        type: com.zaxxer.hikari.HikariDataSource
+        jdbc-url: jdbc:mysql://localhost:3310/readwritetest?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+        driver-class-name: com.mysql.jdbc.Driver
+        username: root
+        password: root
+      ds1:
+        type: com.zaxxer.hikari.HikariDataSource
+        jdbc-url: jdbc:mysql://localhost:3311/readwritetest?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+        driver-class-name: com.mysql.jdbc.Driver
+        username: root
+        password: root
+
+    masterslave: #主从配置
+      name: main-slave
+      master-data-source-name: ds0
+      slave-data-source-names: ds1
+  jpa:
+    show-sql: true
+server:
+  port: 8010
+
+mybatis:
+  mapper-locations:
+    - classpath:mapper/*.xml
