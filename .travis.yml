@@ -18,6 +18,7 @@ before_script:
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
   - pip install codecov
+  - pip install coverage
 
 script: 
   - chmod 777 ./scripts/run.sh
