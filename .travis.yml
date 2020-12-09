@@ -10,10 +10,10 @@ branches:
     - main
 
 script: 
-  - chmod 777 ./test/run.sh
-  - test/run.sh
-  # - cd ./springboot-main-slave 
-  # - pwd
-  # - ls -la
-  # - chmod 777 gradlew
-  # - ./gradlew clean build
+  # - chmod 777 ./test/run.sh
+  # - test/run.sh
+  - cd ./springboot-main-slave 
+  - pwd
+  - ls -la
+  - chmod 777 gradlew
+  - ./gradlew build --scan -s
