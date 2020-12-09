@@ -7,4 +7,5 @@ chmod 777 ./gradlew
 # ./gradlew jacocoTestReport coveralls
 ./gradlew check
 ./gradlew codeCoverageReport
+
 exit
