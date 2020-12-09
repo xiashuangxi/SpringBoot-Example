@@ -6,7 +6,7 @@ chmod 777 ./gradlew
 ./gradlew build --continue
 # ./gradlew jacocoTestReport coveralls
 ./gradlew check
-./gradlew codeCoverageReport
-# ./gradlew jacocoTestReport
+# ./gradlew codeCoverageReport
+./gradlew jacocoTestReport
 
 exit
