@@ -13,10 +13,6 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 
-env:
-  global:
-    - COVERALLS_REPO_TOKEN=4keiZr8Kc4MJnoI38kTFDm5sBabn3taiA
-
 before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
@@ -25,6 +21,13 @@ before_script:
 script: 
   - chmod 777 ./scripts/run.sh
   - scripts/run.sh
+
+after_script:
+  - npm run coveralls
+
+env:
+  global:
+    secure: "Q4mEDUpI9eAUZMkrPPmVjWgGIHLrxoBWNwjpNh88LNM0XgDKc0K6eyG/erPQbNAMxPixaTX18kx4/jnLTJePY4khEdr0fHVvgJhnjHzbijkg9ky8BLgP2wkwfLaDoY/CG2TeFB69Y5dYWFcOis1Fv+BVKrSXQpfHK/y3eE9xak++jXe1bnjoUwLEMdDjmDOXtxYyHicErNucSsbLoLnVA4xb6ZzGuRo78QodsGeWuhrS9urHWOZs8NAzLCCrIo+fej9N63gHYNZ4twaXqdbvAhptCM+h7qO3IQJskw9Q2cBnt3MntYXB9qH4JsrbUpZeBjbyOqfJgXjVA1Mme91kGUJMYk4iRhgpJf+e6u3mookCC+3xWWjkFsH2/U1TqO6WXyjcG1L/ZK+JnarAgz8SGzNICdkG4fEr62NWa/a1RkQdbiJXAeX1N/XN/vrxqVFyNLG2XX1OmObrJCGO4QrI3IY27zvWZHsRZeqet2MVltHjR4xzG+vWWfcCKR1fJif1r30W2Ewtg5lxkcsg6Tpw6ThFkXh9lEa5ThxItsAM/5lTHELPwnNGXvYOfcoYX3toRQjHGI7R6etGNb+/lvhqngT5bK5RQGnnhSR5xDzDN94qtQRvcJLsOonriKjQ9qqT5eQ3ecDE5DEs3aJ9l4R6dCRW2x5PajsI0VJuKlQMIWc="
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)  
