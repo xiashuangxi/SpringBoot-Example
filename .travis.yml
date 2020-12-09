@@ -14,4 +14,4 @@ before_install:
  - chmod +x gradlew
 script: 
   - cd ./springboot-main-slave 
-  - "./gradlew clean build"
+  - gradlew clean build
