@@ -23,7 +23,7 @@ script:
   - pwd
   - ls -la
   - chmod 777 gradlew
-  - ./gradlew build --scan -s
+  - ./gradlew build coveralls --continue
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)>
