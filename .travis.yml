@@ -3,7 +3,7 @@ language: java
 install: echo "skip './gradlew assemble' step"
 dist: trusty
 jdk: oraclejdk8
-sudo: false
+sudo: required
 
 branches:
   only:
@@ -17,20 +17,17 @@ cache:
 before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
+  - sleep 3
 script: 
   - chmod 777 ./scripts/run.sh
   - scripts/run.sh
 
-env:
-  global:
-    - CODECOV_TOKEN=7f31adf9-c934-440e-9260-f1df316eb687
-
 after_success:
-  # - codecov 
   - bash <(curl -s https://codecov.io/bash)
-# notifications:
-#   webhooks: https://coveralls.io/webhook?repo_token=
-  
+
 notifications:
   email: false
+
+env:
+  global:
+    - secure: "EK+uLQoc5Ehulhoy/879c6NB1sy1HcFPSkZd/Gj+RxkVsg1+MNwOqRmbG3qjSwr+Jmf7nKD2T/N5zaQQ/IqLj1toc8jy71STdZfo03w+ZPqIw0saf7DYxspLvSgl2vCIB/Lqv+aQNWBvxBz86Avkw5kd7V6Y3dLKQZlDypdGDHMX2RcEDN2z21R+SSC++D5LiHLzzqyOPv+PdBMyqhfn7sXTxPlXngzpO3X7L34N8OHRF5o89FVRU7Q4F9Csdz+hjY5i4IwzKKFu6fHxfZ+qmpzsyKnCW++QZVxGDGtz/iwGWFMmZF1vCTAJcMGe2vjyY9uKpJ76fAkH59zt81Bd+eljrVhvbT5P/J3pQhM6DCqAfH5X7tZuolYF9wKhF50fL3yXa1vJPG4Ihg26lVjDhaVdz4IC4pLvOf6jZf7L2IfTIHXgrqu/6iGGRmy6HCBLctyYvXCE0M79/qbiLDmAPysMMet1zGstypp/NG6lEWTp0IuNlVc2BiYbO2IwYcblaw25lD8NNCBR0/Wm1PBFsK1cGWndtsweddaXCIB93WQ1uEuzGIdHH/vR+xTa8z+5xpFAs/0PBod8cYtst+RapT6R5Nf70kwVhiSqrJoJACDZtClvVjvJkgsn5A+6O7lKnUyhbuBGN9RKhfrVIC4bc61RS2Mswh3/Xe4OcRUKB54="
