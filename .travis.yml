@@ -5,6 +5,8 @@ dist: trusty
 jdk: oraclejdk8
 sudo: required
 
+COVERALLS_PARALLEL=true
+
 branches:
   only:
     - main
@@ -35,6 +37,8 @@ env:
 after_success:
   # - codecov 
   - bash <(curl -s https://codecov.io/bash)
-
 notifications:
-  email: false
+  webhooks: https://coveralls.io/webhook?repo_token=4keiZr8Kc4MJnoI38kTFDm5sBabn3taiA
+  
+# notifications:
+#   email: false
