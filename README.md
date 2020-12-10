@@ -21,7 +21,7 @@
 
 
 ## SpringBoot-Example
-SpringBoot-Example 是一个集合了各种示例的项目。
+SpringBoot Example 是一个集合了各种示例的项目。
 
 ## 环境
 - JDK 1.8
@@ -32,7 +32,7 @@ SpringBoot-Example 是一个集合了各种示例的项目。
 ## 模块介绍
 |模块名称|介绍|
 |-|-|
-|[sprintboot-main-slave](https://github.com/xiashuangxi/SpringBoot-Example/tree/main/springboot-main-slave)|springboot + shardingsphere 实现读写分离|
+|[sprintboot-main-slave](https://github.com/xiashuangxi/SpringBoot-Example/tree/main/springboot-main-slave)|springboot + shardingsphere + mysql 实现读写分离|
 
 
 ## 开源协议
