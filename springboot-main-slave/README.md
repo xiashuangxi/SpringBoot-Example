@@ -1,2 +1,2 @@
 # Springboot-main-slave
-`springboot`实现读写分享。
+Spring Boot + ShardingSphere + MySql 实现对主从数据库的读写分离。
