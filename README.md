@@ -37,3 +37,5 @@ SpringBoot-Example 是一个集合了各种示例的项目。
 
 ## 开源协议
 [MIT](https://github.com/xiashuangxi/SpringBoot-Example/blob/main/LICENSE)
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fxiashuangxi%2FSpringBoot-Example.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fxiashuangxi%2FSpringBoot-Example?ref=badge_large)
