@@ -20,11 +20,12 @@ buildscript {
 
 plugins {
     id 'java'
+    id 'com.github.kt3k.coveralls' version '2.5.0'
+    id 'jacoco'
 }
 
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
-apply plugin: 'jacoco'
 
 group 'com.sbe'
 version '1.0-SNAPSHOT'
@@ -62,7 +63,9 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-
+coveralls {
+    jacocoReportPath 'app/build/reports/jacoco/test/jacocoTestReport.xml'
+}
 jacocoTestReport {
     reports {
         xml.enabled true
@@ -71,3 +74,4 @@ jacocoTestReport {
 }
 
 check.dependsOn jacocoTestReport
+//cobertura.coverageSourceDirs = sourceSets.main.java.srcDirs
