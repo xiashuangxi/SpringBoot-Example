@@ -31,8 +31,8 @@ env:
 after_success:
   # - codecov 
   - bash <(curl -s https://codecov.io/bash)
-notifications:
-  webhooks: https://coveralls.io/webhook?repo_token=4keiZr8Kc4MJnoI38kTFDm5sBabn3taiA
-  
 # notifications:
-#   email: false
+#   webhooks: https://coveralls.io/webhook?repo_token=
+  
+notifications:
+  email: false
