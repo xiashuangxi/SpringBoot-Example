@@ -21,7 +21,7 @@ public class MainSlaveController {
         return readWriteTestService.findAll();
     }
 
-    @PostMapping(value = "/saveDto", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @PostMapping(value = "/saveDto", produces = MediaType.APPLICATION_JSON_VALUE)
     public int saveDto(@RequestBody ReadWriteTestDTO dto){
         return readWriteTestService.saveDto(dto);
     }

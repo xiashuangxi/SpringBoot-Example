@@ -3,7 +3,7 @@ language: java
 install: echo "skip './gradlew assemble' step"
 dist: trusty
 jdk: oraclejdk8
-sudo: required
+# sudo: required
 
 branches:
   only:
