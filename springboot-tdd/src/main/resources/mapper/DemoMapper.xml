@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sbe.tdd.mapper.DemoMapper">
+    <resultMap id="BaseResultMap" type="com.sbe.tdd.dto.DemoDTO">
+        <id column="id" jdbcType="INTEGER" property="id" javaType="java.lang.Long"/>
+        <id column="content" jdbcType="VARCHAR" property="content" javaType="java.lang.String"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="BaseResultMap">select * from t_demo1</select>
+
+</mapper>
