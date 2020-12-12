@@ -32,12 +32,9 @@ SpringBoot Example 是一个集合了各种示例的项目。
 - IntelliJ IDEA 2019.2.4
 - Mysql 8
 
-## 模块介绍
-|模块名称|介绍|
-|-|-|
-|[sprintboot-main-slave](https://github.com/xiashuangxi/SpringBoot-Example/tree/main/springboot-main-slave)|读写分离示例|
-|[sprintboot-tdd](https://github.com/xiashuangxi/SpringBoot-Example/tree/main/springboot-tdd)|TDD（测试驱动开发）<span style='color:red;font-weight: bold;font-size: 11px;'>`未完善`</span>|
-
+## 示例
+- [sprintboot-main-slave](https://github.com/xiashuangxi/SpringBoot-Example/tree/main/springboot-main-slave) - 读写分离示例
+- [sprintboot-tdd](https://github.com/xiashuangxi/SpringBoot-Example/tree/main/springboot-tdd) - TDD（测试驱动开发）<span style='color:red;font-weight: bold;font-size: 11px;'>`未完善`</span>
 
 ## 开源协议
 [MIT](https://github.com/xiashuangxi/SpringBoot-Example/blob/main/LICENSE)
