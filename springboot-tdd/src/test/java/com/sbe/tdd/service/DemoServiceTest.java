@@ -3,7 +3,6 @@ package com.sbe.tdd.service;
 import com.sbe.tdd.dto.DemoDTO;
 import com.sbe.tdd.mapper.DemoMapper;
 import com.sbe.tdd.service.impl.DemoServiceImpl;
-import org.apache.ibatis.reflection.ArrayUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,12 +10,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
