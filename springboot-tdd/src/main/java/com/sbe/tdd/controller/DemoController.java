@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Demo 控制器类
+ */
 @RestController
 @RequestMapping( value = "/tdd")
 public class DemoController {
@@ -16,6 +19,10 @@ public class DemoController {
     @Autowired
     private DemoService demoService;
 
+    /**
+     * 查询所有数据
+     * @return
+     */
     @GetMapping( value = "/findAll")
     public List<DemoDTO> findAll() {
         return demoService.findAll();

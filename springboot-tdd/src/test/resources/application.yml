@@ -12,7 +12,6 @@ spring:
       ddlAuto: update
 server:
   port: 8011
-
 mybatis:
-  mapper-locations:
-    - classpath:mapper/*.xml
+    mapper-locations:
+      classpath: mapper/*.xml

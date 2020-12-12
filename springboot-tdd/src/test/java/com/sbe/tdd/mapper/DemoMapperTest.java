@@ -20,43 +20,43 @@
  * DEALINGS IN THE SOFTWARE.                                                  *
  ******************************************************************************/
 
-package com.sbe.tdd;
+package com.sbe.tdd.mapper;
 
-
+import com.sbe.tdd.TDDApplication;
 import com.sbe.tdd.dto.DemoDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.mockito.BDDMockito;
+import org.mockito.Mock;
+import org.mockito.Spy;
+import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 
+import java.util.Collections;
 import java.util.List;
 
-//@ExtendWith(SpringExtension.class)
-@SpringBootTest
-public class TDDApplicationTest {
+@MybatisTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+public class DemoMapperTest{
+
+    @Spy
+    private DemoMapper demoMapper;
+
+
     @Test
-    public void contextLoads() {
+    public void test_demo_findAll() {
+        System.out.println("##########Mapper FindAll##########");
+        DemoDTO demoDTO = new DemoDTO(1L,"xxx");
+        BDDMockito.given(demoMapper.findAll()).willReturn(Collections.singletonList(demoDTO));
+
+        List<DemoDTO> demos = demoMapper.findAll();
+        Assertions.assertEquals(1, demos.size());
     }
 
-//    @Autowired
-//    private TestRestTemplate testRestTemplate;
-//
-//    @Test
-//    public void test_demo_findAll() {
-//        ResponseEntity<List<DemoDTO>> response=testRestTemplate.exchange(
-//                "/tdd/findAll",
-//                HttpMethod.GET,
-//                null,
-//                new ParameterizedTypeReference<List<DemoDTO>>() {
-//                }
-//        );
-//        Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
-//    }
+    @Test
+    public void test_demo_create() {
+        System.out.println("##########Mapper Create##########");
+        DemoDTO demoDTO = new DemoDTO(1L,"xxx");
+        demoMapper.createDto(demoDTO);
+    }
 }

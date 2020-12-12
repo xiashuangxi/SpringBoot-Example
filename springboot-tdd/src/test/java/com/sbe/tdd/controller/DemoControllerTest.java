@@ -20,43 +20,50 @@
  * DEALINGS IN THE SOFTWARE.                                                  *
  ******************************************************************************/
 
-package com.sbe.tdd;
-
+package com.sbe.tdd.controller;
 
 import com.sbe.tdd.dto.DemoDTO;
-import org.junit.jupiter.api.Assertions;
+import com.sbe.tdd.service.DemoService;
+import org.hamcrest.collection.IsCollectionWithSize;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.BDDMockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.util.List;
+import java.util.Collections;
 
-//@ExtendWith(SpringExtension.class)
-@SpringBootTest
-public class TDDApplicationTest {
+@ExtendWith(SpringExtension.class)
+@WebMvcTest( controllers = DemoController.class)
+public class DemoControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @MockBean
+    private DemoService demoService;
+
     @Test
-    public void contextLoads() {
-    }
+    public void test_demo_findAll() throws Exception {
+        System.out.println("##########Controller##########");
+        BDDMockito.given( demoService.findAll())
+                .willReturn(
+                        Collections.singletonList(
+                            new DemoDTO(1L ,"xxx")
+                        )
+                );
+        mockMvc.perform(MockMvcRequestBuilders.get("/tdd/findAll"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$", IsCollectionWithSize.hasSize(1)))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].id").value(1L))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].content").value("xxx"))
+                .andDo(MockMvcResultHandlers.print());
 
-//    @Autowired
-//    private TestRestTemplate testRestTemplate;
-//
-//    @Test
-//    public void test_demo_findAll() {
-//        ResponseEntity<List<DemoDTO>> response=testRestTemplate.exchange(
-//                "/tdd/findAll",
-//                HttpMethod.GET,
-//                null,
-//                new ParameterizedTypeReference<List<DemoDTO>>() {
-//                }
-//        );
-//        Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
-//    }
+    }
 }

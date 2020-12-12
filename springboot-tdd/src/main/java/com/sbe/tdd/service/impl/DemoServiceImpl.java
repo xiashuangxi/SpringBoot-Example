@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Demo 服务类
+ */
 @Service
 public class DemoServiceImpl implements DemoService {
 
@@ -17,5 +20,10 @@ public class DemoServiceImpl implements DemoService {
     @Override
     public List<DemoDTO> findAll() {
         return demoMapper.findAll();
+    }
+
+    @Override
+    public int createDto(DemoDTO dto){
+        return demoMapper.createDto(dto);
     }
 }
