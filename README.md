@@ -35,7 +35,7 @@ SpringBoot Example 是一个集合了各种示例的项目。
 ## 示例
 - [sprintboot-main-slave](https://github.com/xiashuangxi/SpringBoot-Example/tree/main/springboot-main-slave) - 读写分离示例
 - [sprintboot-tdd](https://github.com/xiashuangxi/SpringBoot-Example/tree/main/springboot-tdd) - TDD（测试驱动开发）
-- [srpingboot-redis](https://github.com/xiashuangxi/SpringBoot-Exammple/tree/main/springboot-redis) - 整合Redis
+- [srpingboot-redis](https://github.com/xiashuangxi/SpringBoot-Example/tree/main/springboot-redis) - 整合Redis
 
 ## 开源协议
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fxiashuangxi%2FSpringBoot-Example.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fxiashuangxi%2FSpringBoot-Example?ref=badge_large)
