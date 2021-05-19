@@ -1,0 +1,12 @@
+spring:
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    lecttuce:
+      pool:
+        max-active: 8
+        max-wait: -1ms #阻塞直到成功获取连接
+        max-idle: 8
+        min-idle: 0
+      shutdown-timeout: 200ms

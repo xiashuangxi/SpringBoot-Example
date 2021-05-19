@@ -1,0 +1,155 @@
+//buildscript {
+//    repositories {
+//        mavenLocal();
+//        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+//        maven { url "http://oss.sonatype.org/content/groups/public/" }
+//        maven { url "http://repo.spring.io/libs-milestone/" }
+//        mavenCentral()
+//        jcenter()
+//    }
+//    dependencies {
+//        classpath ('org.springframework.boot:spring-boot-gradle-plugin:2.2.0.RELEASE')
+//    }
+//}
+//
+//plugins {
+//    id 'java'
+//}
+//
+//apply plugin: 'org.springframework.boot'
+//apply plugin: "io.spring.dependency-management"
+//
+//group 'org.example'
+//version '1.0-SNAPSHOT'
+//
+//sourceCompatibility = 1.8
+//
+//repositories {
+//    mavenCentral()
+//    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+//    maven { url "http://oss.sonatype.org/content/groups/public/" }
+//    maven { url "http://repo.spring.io/libs-milestone/" }
+//    mavenCentral()
+//    jcenter()
+//}
+//
+//dependencies {
+//    // spring-boot web 插件
+//    compile(group: "org.springframework.boot", name: "spring-boot-starter-web")
+//
+//    // spring-boot redis 插件
+//    compile(group: "org.springframework.boot", name: "spring-boot-starter-data-redis")
+//
+//    // 数据源
+//    compile(group: "org.apache.commons", name: "commons-pool2")
+//
+//    // redis session 管理
+//    compile(group: "org.springframework.session", name: "spring-session-data-redis")
+//
+//    // spring-boot 测试插件
+//    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+//        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+//    }
+//    testCompile('org.junit.jupiter:junit-jupiter-api:5.4.0')
+//    testRuntime('org.junit.jupiter:junit-jupiter-engine:5.4.0')
+//    // implementation 'junit:junit:4.12'
+//    // testRuntime('org.junit.vintage:junit-vintage-engine:5.4.0')
+//
+//    // junit
+//    testCompile group: 'junit', name: 'junit', version: '4.12'
+//}
+//
+//test {
+//    useJUnitPlatform()
+//    testLogging {
+//        exceptionFormat "full"
+//        events "started", "skipped", "passed", "failed"
+//        showStandardStreams true
+//    }
+//}
+//
+//tasks.withType(Test) {
+//    scanForTestClasses = false
+//    include "**/*Test.class"
+//}
+
+
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        maven { url "https://oss.sonatype.org/content/groups/public/" }
+        maven { url "https://repo.spring.io/libs-milestone/" }
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath ('org.springframework.boot:spring-boot-gradle-plugin:2.2.0.RELEASE')
+    }
+}
+
+plugins {
+    id 'java'
+    id 'com.github.kt3k.coveralls' version '2.5.0'
+    id 'jacoco'
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group 'com.sbe'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+    maven { url "https://oss.sonatype.org/content/groups/public/" }
+    maven { url "https://repo.spring.io/libs-milestone/" }
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    // spring-boot web 插件
+    compile(group: "org.springframework.boot", name: "spring-boot-starter-web")
+    // spring-boot redis 插件
+    compile(group: "org.springframework.boot", name: "spring-boot-starter-data-redis")
+    // 数据源
+    compile(group: "org.apache.commons", name: "commons-pool2")
+    // redis session 管理
+    compile(group: "org.springframework.session", name: "spring-session-data-redis")
+
+    testCompile group: 'org.mockito', name:'mockito-core', version: '2.+'
+    // spring-boot 测试插件
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    // java.lang.NoClassDefFoundError: org/junit/jupiter/api/extension/ScriptEvaluationException
+    // 注释了就可以解决以上问题
+    // testCompile('org.junit.jupiter:junit-jupiter-api:5.6.0')
+    // testRuntime('org.junit.jupiter:junit-jupiter-engine:5.4.0')
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        csv.enabled true
+        html.destination file("${buildDir}/jacocoHtml")
+    }
+}
+tasks.withType(Test) {
+    scanForTestClasses = false
+//    include "**/*Test.class"
+}
+
+coveralls {
+    jacocoReportPath 'build/reports/jacoco/test/jacocoTestReport.xml'
+}
